@@ -12,40 +12,48 @@
                         <input type="text" class="form-control" name="txtTitle" value="<?= $article->getTitle() ?>">
                         
                     </div>
-                
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Name</span>
-                        <input type="text" class="form-control" name="txtName" value="<?= $article->getSummary() ?>">
-                    </div>
                     
-                   
-                    <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Category</span>
-                        <input type="text" class="form-control" name="txtCategory" value="<?= $article->getContent() ?>">
-                    </div>
-
-
+                    
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Summary</span>
                         <input type="text" class="form-control" name="txtSummary" value="<?= $article->getSummary() ?>">
                     </div>
+                    
+                   
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Content</span>
+                        <input type="text" class="form-control" name="txtContent" value="<?= $article->getContent() ?>">
+                    </div>
 
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">ID Category</span>
-                        <input type="text" class="form-control" name="txtAuthor" value="<?= $article->getCategory_id() ?>">
+                        <span class="input-group-text" id="lblCatName">Created</span>
+                        <input type="text" class="form-control" name="txtCreated" placeholder="<?= date('Y-m-d H:i:s') ?>" disabled>
                     </div>
+
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">ID Member</span>
-                        <input type="text" class="form-control" name="txtAuthor" value="<?= $article->getMember_id() ?>">
+                        <span class="input-group-text" id="lblCatName">ID category</span>
+                        <input type="text" class="form-control" name="txtCategory_id" value="<?= $article->getCategory_id() ?>">
                     </div>
+                    
+                    
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">ID Image</span>
-                        <input type="text" class="form-control" name="txtAuthor" value="<?= $article->getImage_id() ?>">
+                        <span class="input-group-text" id="lblCatName">ID member</span>
+                        <input type="text" class="form-control" name="txtMember_id" value="<?= $article->getMember_id() ?>">
                     </div>
+
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">ID image</span>
+                        <input type="text" class="form-control" name="txtImage_id" value="<?= $article->getImage_id() ?>">
+                    </div>
+
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Published</span>
-                        <input type="text" class="form-control" name="txtAuthor" value="<?= $article->getPublished() ?>">
+                        <input type="text" class="form-control" name="txtPublished" value="<?= $article->getPublished() ?>">
                     </div>
+
+                    
+                    
+                    
                     <div class="form-group  float-end ">
                         <input type="submit" value="Lưu" class="btn btn-success" name="update">
                         <a href="?controller=article" class="btn btn-warning ">Quay lại</a>

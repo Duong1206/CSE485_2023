@@ -9,12 +9,13 @@ include_once 'views/include/header.php';
                 <thead>
                     <tr>
                         <th scope="col" style="text-align: center;">Id</th>
-                        <th scope="col" style="text-align: center;">Name</th>
+                        <th scope="col" style="text-align: center;">Title</th>
                         <th scope="col" style="text-align: center;">Summary</th>
+                        <th scope="col" style="text-align: center;">Content</th>
                         <th scope="col" style="text-align: center;">Created</th>
-                        <th scope="col" style="text-align: center;">ID Category</th>
-                        <th scope="col" style="text-align: center;">ID Member</th>
-                        <th scope="col" style="text-align: center;">ID Image</th>
+                        <th scope="col" style="text-align: center;">ID category</th>
+                        <th scope="col" style="text-align: center;">ID member</th>
+                        <th scope="col" style="text-align: center;">ID image</th>
                         <th scope="col" style="text-align: center;">Published</th>
                         <th>Sửa</th>
                         <th>Xóa</th>
@@ -34,9 +35,12 @@ include_once 'views/include/header.php';
                                 <?= $article->getSummary() ?>
                             </td>
                             <td style="max-width: 100px;">
+                                <?= $article->getContent() ?>
+                            </td>
+                            <td style="max-width: 200px;">
                                 <?= $article->getCreated() ?>
                             </td>
-                            <td style="max-width: 100px;">
+                            <td style="max-width: 200px;">
                                 <?= $article->getCategory_id() ?>
                             </td>
                             <td style="max-width: 100px;">
@@ -48,6 +52,8 @@ include_once 'views/include/header.php';
                             <td style="max-width: 100px;">
                                 <?= $article->getPublished() ?>
                             </td>
+                            
+                            <td>
                                 <a href="?controller=article&action=edit_article&id=<?= $article->getId() ?>"><button
                                         class="btn-primary"><i class="fa-solid fa-pen-to-square"></i></button></a>
                             </td>

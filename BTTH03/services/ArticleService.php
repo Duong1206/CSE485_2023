@@ -14,8 +14,8 @@ class ArticleService{
         $articles = [];
 
         while($row = $statment->fetch()){
-            $article = new Article($row['id'], $row['title'], $row['summary'], 
-             $row['created'], $row['category_id'], $row['member_id'], $row['image_id'], $row['published']);
+            $article = new Article($row['id'], $row['title'], $row['summary'], $row['content'],
+            $row['created'], $row['category_id'], $row['member_id'], $row['image_id'], $row['published']);
 
             array_push($articles, $article);
         }
@@ -29,7 +29,8 @@ class ArticleService{
         $select_Id = "SELECT * FROM article WHERE id = $id";
         $statment = $conn->query($select_Id);
         $row = $statment->fetch();
-        $article = new Article($row['id'], $row['title'], $row['summary'], $row['created'], $row['category_id'], $row['member_id'], $row['image_id'], $row['published']);
+        $article = new Article($row['id'], $row['title'], $row['summary'], $row['content'],
+            $row['created'], $row['category_id'], $row['member_id'], $row['image_id'], $row['published']);
         $conn = null;
         return $article;
     }
@@ -38,8 +39,8 @@ class ArticleService{
         $dbconn = new Dbconnection();
         $conn = $dbconn->getConnection();
 
-        $sql = "INSERT INTO `article` (`id`, `title`, `summary`, , `created`, `category_id`, `member_id`, `image_id`, `published`) 
-        VALUES (null, :title, :summary, :created, :category_id, :member_id, :image_id, :published)";
+        $sql = "INSERT INTO `article` (`id`, `title`, `summary`, 'content', `created`, `category_id`, `member_id`, `image_id`, `published`) 
+        VALUES (null, :title, :summary, :content, :created, :category_id, :member_id, :image_id, :published)";
         $statment = $conn->prepare($sql);
         $statment->execute($arguments);
         $conn = null;
@@ -49,8 +50,8 @@ class ArticleService{
         $dbconn = new Dbconnection();
         $conn = $dbconn->getConnection();
         
-        $sql = "UPDATE article SET `title` = :title, `summary` = :summary, 
-        `created` = :created, `category_id` = :category_id, `member_id` = :member_id, `imaged_id` = :imaged_id, 'published' = :published WHERE `id` = :id";
+        $sql = "UPDATE article SET `title` = :title, `summary` = :summary, `created` = :created,
+        `category_id` = :category_id, `member_id` = :member_id, `image_id` = :image_id, `published` = :published WHERE `id` = :id";
         $statment = $conn->prepare($sql);
         $statment->execute($arguments);
         $conn = null;
